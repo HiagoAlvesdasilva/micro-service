@@ -1,7 +1,7 @@
 package br.com.hiago.user_api.resources.exceptions;
 
 import br.com.hiago.user_api.services.exceptions.ObjectNotFoundException;
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class ResourceExceptionHandler {
 
     @ExceptionHandler(ObjectNotFoundException.class)
-    public ResponseEntity<StandardError> objetcNotFound(ObjectNotFoundException ex, HttpServletRequest request){
+    public ResponseEntity<StandardError> objectNotFound(ObjectNotFoundException ex, HttpServletRequest request){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                 new StandardError(
                         LocalDateTime.now(),
